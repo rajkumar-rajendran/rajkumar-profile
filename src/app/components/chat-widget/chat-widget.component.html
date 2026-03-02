@@ -1,0 +1,70 @@
+<!-- Floating button -->
+  <button class="fab" type="button" (click)="toggle()">
+    <span class="fab__dot"></span>
+    Ask AI
+  </button>
+
+  <!-- Backdrop -->
+  <div class="backdrop" *ngIf="open" (click)="close()"></div>
+
+  <!-- Drawer -->
+  <section class="drawer" *ngIf="open" (click)="$event.stopPropagation()">
+    <header class="drawer__header">
+      <div>
+        <div class="title">Ask Raj AI</div>
+        <div class="subtitle">Answers from resume/portfolio</div>
+      </div>
+
+      <div class="hdrActions">
+        <button class="icon" type="button" (click)="reset()" title="Reset">↺</button>
+        <button class="icon" type="button" (click)="close()" title="Close">✕</button>
+      </div>
+    </header>
+
+    <div class="drawer__body" #scrollArea>
+      <div class="chipRow" *ngIf="messages.length === 0">
+        <button class="chipBtn" (click)="sendQuick('Summarize my experience in 3 bullets')">Summary</button>
+        <button class="chipBtn" (click)="sendQuick('What are my strongest backend skills?')">Skills</button>
+        <button class="chipBtn" (click)="sendQuick('Tell me about my low-latency work')">Low latency</button>
+      </div>
+
+      <div class="msgList">
+        <div *ngFor="let m of messages" class="msg" [class.msg--user]="m.role==='user'">
+          <div class="bubble">
+            <div class="text" [innerText]="m.content"></div>
+            <div class="meta">{{ formatTime(m.ts) }}</div>
+          </div>
+        </div>
+
+        <div class="msg" *ngIf="loading">
+          <div class="bubble bubble--typing">
+            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          </div>
+        </div>
+
+        <div class="sources" *ngIf="lastSources?.length">
+          <button class="sources__btn" type="button" (click)="showSources = !showSources">
+            Sources ({{ lastSources.length}}) <span class="chev">{{ showSources ? '▾' : '▸' }}</span>
+          </button>
+          <div class="sources__list" *ngIf="showSources">
+            <div class="src" *ngFor="let s of lastSources">{{ s }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="drawer__footer">
+      <form (ngSubmit)="onSend()" class="composer">
+        <input
+          class="input"
+          [(ngModel)]="draft"
+          name="draft"
+          autocomplete="off"
+          placeholder="Ask a question…"
+          [disabled]="loading"
+        />
+        <button class="send" type="submit" [disabled]="loading || !draft.trim()">Send</button>
+      </form>
+      <div class="hint">Tip: ask “What did I do at Citibank?”</div>
+    </footer>
+  </section>
