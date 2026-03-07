@@ -1,19 +1,18 @@
 import { Component, Inject, OnDestroy, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { ChatService } from './chat.service';
-import { ChatWidgetComponent } from './components/chat-widget/chat-widget.component';
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { MainBodyComponent } from './components/main-body/main-body.component';
+import { ChatService } from '../../chat.service';
+import { ChatWidgetComponent } from '../chat-widget/chat-widget.component';
+import { HeaderComponent } from '../header/header.component';
+import { FooterComponent } from '../footer/footer.component';
 
 @Component({
-  selector: 'app-root',
+  selector: 'app-main-body',
   standalone: true,
-  imports: [ChatWidgetComponent, CommonModule, HeaderComponent, FooterComponent, MainBodyComponent],
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  imports: [ CommonModule],
+  templateUrl: './main-body.component.html',
+  styleUrls: ['./main-body.component.css']
 })
-export class AppComponent implements OnInit, OnDestroy {
+export class MainBodyComponent implements OnInit, OnDestroy {
   sessionId = '';
   apiUrl = 'http://localhost:8080/api/chat';
 
