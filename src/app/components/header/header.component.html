@@ -1,17 +1,36 @@
-  <header class="topbar">
-    <div class="container topbar__inner">
-      <div class="brand">
-        <div class="brand__name">Rajkumar Rajendran</div>
-        <div class="brand__meta">Software Engineer • Dallas, TX</div>
+<header
+  class="sticky top-0 z-50 border-b backdrop-blur-md
+         border-[#d7cb95]/70 bg-[#f6efc8]/80
+         dark:border-slate-800 dark:bg-[#0b1020]/80 transition-colors duration-300"
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+    <div class="flex items-center justify-between h-16">
+
+      <div class="flex items-center gap-3 font-bold text-lg text-[#2f2c22] dark:text-white">
+        <div class="h-9 w-9 rounded-xl bg-[#2f2c22] dark:bg-white dark:text-[#0b1020] text-white flex items-center justify-center text-sm">
+          RR
+        </div>
+        <span>Raj.dev</span>
       </div>
 
-      <div class="actions">
-        <a class="pill" href="/assets/Rajkumar_Rajendran_Resume.pdf" target="_blank" rel="noopener">Resume</a>
+      <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+        <a href="#home" class="text-[#2f2c22] dark:text-slate-200 hover:text-emerald-700 dark:hover:text-emerald-400 transition">
+          Homepage
+        </a>
+        <a href="#about" class="text-[#2f2c22] dark:text-slate-200 hover:text-emerald-700 dark:hover:text-emerald-400 transition">
+          About this App
+        </a>
+      </nav>
 
-        <a class="iconBtn" href="https://linkedin.com/in/raj10/" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
-        <a class="iconBtn" href="https://github.com/YOUR_GITHUB" target="_blank" rel="noopener" aria-label="GitHub">⌂</a>
-
-        <button class="primary" (click)="openChat()">Ask AI</button>
-      </div>
+      <button
+        (click)="toggleTheme()"
+        class="flex items-center gap-2 rounded-full border px-3 py-2 text-sm font-medium transition
+               border-[#d7cb95] bg-[#fff7d6]/80 text-[#2f2c22] hover:bg-[#f0e7bb]
+               dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100 dark:hover:bg-slate-700"
+      >
+        <span>{{ isDark ? '☀' : '🌙' }}</span>
+        <span class="hidden sm:inline">{{ isDark ? 'Light' : 'Dark' }}</span>
+      </button>
     </div>
-  </header>
+  </div>
+</header>

@@ -1,70 +1,220 @@
 <!-- Floating button -->
-  <button class="fab" type="button" (click)="toggle()">
-    <span class="fab__dot"></span>
-    Ask AI
-  </button>
+<button
+  type="button"
+  (click)="toggle()"
+  class="fixed bottom-5 right-4 sm:bottom-6 sm:right-6 z-[70]
+         inline-flex items-center gap-2 rounded-full
+         border border-[#d7cb95] bg-[#fff7d6]/95 text-[#3d392b]
+         backdrop-blur px-4 py-3 text-sm sm:text-base font-semibold
+         shadow-[0_12px_30px_rgba(80,70,25,0.18)]
+         transition hover:-translate-y-1 hover:shadow-[0_18px_40px_rgba(80,70,25,0.24)]
+         dark:border-slate-700/80 dark:bg-slate-900/85 dark:text-slate-100
+         dark:shadow-[0_16px_40px_rgba(0,0,0,0.45)] dark:hover:bg-slate-800/90"
+>
+  <span class="relative flex h-2.5 w-2.5">
+    <span class="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-60 animate-ping"></span>
+    <span class="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500 shadow-[0_0_12px_rgba(16,185,129,0.8)]"></span>
+  </span>
+  <span class="hidden sm:inline">Ask Raj AI</span>
+  <span class="sm:hidden">Ask AI</span>
+</button>
 
-  <!-- Backdrop -->
-  <div class="backdrop" *ngIf="open" (click)="close()"></div>
+<!-- Backdrop -->
+<div
+  *ngIf="open"
+  (click)="close()"
+  class="fixed inset-0 z-[60] bg-black/35 backdrop-blur-[2px] dark:bg-[#020611]/60 dark:backdrop-blur-[3px]"
+></div>
 
-  <!-- Drawer -->
-  <section class="drawer" *ngIf="open" (click)="$event.stopPropagation()">
-    <header class="drawer__header">
-      <div>
-        <div class="title">Ask Raj AI</div>
-        <div class="subtitle">Answers from resume/portfolio</div>
-      </div>
+<!-- Drawer -->
+<section
+  *ngIf="open"
+  (click)="$event.stopPropagation()"
+  class="fixed z-[70]
+         inset-x-2 bottom-2 top-auto h-[82vh]
+         sm:inset-x-auto sm:right-4 sm:bottom-24 sm:top-auto sm:h-[min(720px,78vh)] sm:w-[28rem]
+         md:right-6 md:w-[30rem]
+         lg:w-[32rem]
+         rounded-[28px] border border-[#d9ce9c]/80
+         bg-[#f7f1cf]/92 text-[#2f2c22]
+         shadow-[0_30px_80px_rgba(50,40,10,0.22)]
+         backdrop-blur-xl
+         flex flex-col overflow-hidden
+         dark:border-slate-700/80
+         dark:bg-[linear-gradient(180deg,rgba(10,18,36,0.96)_0%,rgba(9,16,30,0.96)_100%)]
+         dark:text-slate-100
+         dark:shadow-[0_30px_100px_rgba(0,0,0,0.55)]"
+>
+  <!-- glow layers -->
+  <div class="pointer-events-none absolute inset-0 hidden dark:block">
+    <div class="absolute -top-16 -right-16 h-40 w-40 rounded-full bg-blue-400/10 blur-3xl"></div>
+    <div class="absolute -bottom-16 -left-16 h-40 w-40 rounded-full bg-emerald-400/10 blur-3xl"></div>
+    <div class="absolute inset-0 opacity-[0.06] bg-[linear-gradient(to_right,rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[size:42px_42px]"></div>
+  </div>
 
-      <div class="hdrActions">
-        <button class="icon" type="button" (click)="reset()" title="Reset">↺</button>
-        <button class="icon" type="button" (click)="close()" title="Close">✕</button>
-      </div>
-    </header>
-
-    <div class="drawer__body" #scrollArea>
-      <div class="chipRow" *ngIf="messages.length === 0">
-        <button class="chipBtn" (click)="sendQuick('Summarize my experience in 3 bullets')">Summary</button>
-        <button class="chipBtn" (click)="sendQuick('What are my strongest backend skills?')">Skills</button>
-        <button class="chipBtn" (click)="sendQuick('Tell me about my low-latency work')">Low latency</button>
-      </div>
-
-      <div class="msgList">
-        <div *ngFor="let m of messages" class="msg" [class.msg--user]="m.role==='user'">
-          <div class="bubble">
-            <div class="text" [innerText]="m.content"></div>
-            <div class="meta">{{ formatTime(m.ts) }}</div>
-          </div>
+  <!-- Header -->
+  <header class="relative flex items-start justify-between gap-4 border-b border-[#ddd2a4] px-4 py-4 sm:px-5 dark:border-slate-700/80">
+    <div class="min-w-0">
+      <div class="flex items-center gap-3">
+        <div class="flex h-9 w-9 items-center justify-center rounded-2xl bg-[#2f2c22] text-white shadow-sm dark:bg-white dark:text-[#0b1020]">
+          ✦
         </div>
-
-        <div class="msg" *ngIf="loading">
-          <div class="bubble bubble--typing">
-            <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        <div>
+          <div class="text-base sm:text-lg font-bold tracking-[-0.02em] text-[#2f2c22] dark:text-white">
+            Ask Raj AI
           </div>
-        </div>
-
-        <div class="sources" *ngIf="lastSources?.length">
-          <button class="sources__btn" type="button" (click)="showSources = !showSources">
-            Sources ({{ lastSources.length}}) <span class="chev">{{ showSources ? '▾' : '▸' }}</span>
-          </button>
-          <div class="sources__list" *ngIf="showSources">
-            <div class="src" *ngFor="let s of lastSources">{{ s }}</div>
+          <div class="text-xs sm:text-sm text-[#6f6a52] dark:text-slate-400">
+            Answers from resume and portfolio
           </div>
         </div>
       </div>
     </div>
 
-    <footer class="drawer__footer">
-      <form (ngSubmit)="onSend()" class="composer">
-        <input
-          class="input"
-          [(ngModel)]="draft"
-          name="draft"
-          autocomplete="off"
-          placeholder="Ask a question…"
-          [disabled]="loading"
-        />
-        <button class="send" type="submit" [disabled]="loading || !draft.trim()">Send</button>
-      </form>
-      <div class="hint">Tip: ask “What did I do at Citibank?”</div>
-    </footer>
-  </section>
+    <div class="flex items-center gap-2">
+      <button
+        type="button"
+        (click)="reset()"
+        title="Reset"
+        class="flex h-9 w-9 items-center justify-center rounded-xl border border-[#d8cd97] bg-white/40 text-[#544f3d] transition hover:bg-white/70
+               dark:border-slate-700 dark:bg-slate-800/80 dark:text-slate-200 dark:hover:bg-slate-700"
+      >
+        ↺
+      </button>
+
+      <button
+        type="button"
+        (click)="close()"
+        title="Close"
+        class="flex h-9 w-9 items-center justify-center rounded-xl border border-[#d8cd97] bg-white/40 text-[#544f3d] transition hover:bg-white/70
+               dark:border-slate-700 dark:bg-slate-800/80 dark:text-slate-200 dark:hover:bg-slate-700"
+      >
+        ✕
+      </button>
+    </div>
+  </header>
+
+  <!-- Body -->
+  <div #scrollArea class="relative flex-1 overflow-y-auto px-3 py-3 sm:px-4 sm:py-4">
+    <!-- Quick prompts -->
+    <div *ngIf="messages.length === 0" class="mb-4 flex flex-wrap gap-2">
+      <button
+        type="button"
+        (click)="sendQuick('Summarize my experience in 3 bullets')"
+        class="rounded-full border border-[#d8cd97] bg-white/45 px-3 py-2 text-xs sm:text-sm font-medium text-[#4d4938] transition hover:bg-white/70
+               dark:border-slate-700 dark:bg-slate-800/80 dark:text-slate-200 dark:hover:bg-slate-700"
+      >
+        Summary
+      </button>
+
+      <button
+        type="button"
+        (click)="sendQuick('What are my strongest backend skills?')"
+        class="rounded-full border border-[#d8cd97] bg-white/45 px-3 py-2 text-xs sm:text-sm font-medium text-[#4d4938] transition hover:bg-white/70
+               dark:border-slate-700 dark:bg-slate-800/80 dark:text-slate-200 dark:hover:bg-slate-700"
+      >
+        Skills
+      </button>
+
+      <button
+        type="button"
+        (click)="sendQuick('Tell me about my low-latency work')"
+        class="rounded-full border border-[#d8cd97] bg-white/45 px-3 py-2 text-xs sm:text-sm font-medium text-[#4d4938] transition hover:bg-white/70
+               dark:border-slate-700 dark:bg-slate-800/80 dark:text-slate-200 dark:hover:bg-slate-700"
+      >
+        Low latency
+      </button>
+    </div>
+
+    <!-- Messages -->
+    <div class="flex flex-col gap-3">
+      <div
+        *ngFor="let m of messages"
+        class="flex"
+        [ngClass]="m.role === 'user' ? 'justify-end' : 'justify-start'"
+      >
+        <div
+          [ngClass]="
+            m.role === 'user'
+              ? 'bg-[linear-gradient(135deg,#2f2c22,#5b6543)] text-white border-transparent dark:bg-[linear-gradient(135deg,#2563eb,#0f766e)] dark:text-white shadow-[0_10px_30px_rgba(37,99,235,0.18)]'
+              : 'bg-white/60 text-[#2f2c22] border-[#ddd2a4] dark:bg-slate-900/80 dark:text-slate-100 dark:border-slate-700/80'
+          "
+          class="max-w-[88%] sm:max-w-[82%] rounded-2xl border px-4 py-3 shadow-[0_8px_20px_rgba(70,55,20,0.08)] dark:shadow-[0_12px_30px_rgba(0,0,0,0.28)]"
+        >
+          <div class="whitespace-pre-wrap text-[13px] sm:text-sm leading-6">
+            {{ m.content }}
+          </div>
+          <div
+            [ngClass]="m.role === 'user' ? 'text-white/70' : 'text-[#7a745c] dark:text-slate-400'"
+            class="mt-2 text-[11px]"
+          >
+            {{ formatTime(m.ts) }}
+          </div>
+        </div>
+      </div>
+
+      <!-- Loading -->
+      <div *ngIf="loading" class="flex justify-start">
+        <div class="rounded-2xl border border-[#ddd2a4] bg-white/60 px-4 py-3 shadow-[0_8px_20px_rgba(70,55,20,0.08)]
+                    dark:border-slate-700/80 dark:bg-slate-900/80 dark:shadow-[0_12px_30px_rgba(0,0,0,0.25)]">
+          <div class="flex items-center gap-1.5">
+            <span class="h-2 w-2 rounded-full bg-[#7f8b63] animate-bounce dark:bg-emerald-400"></span>
+            <span class="h-2 w-2 rounded-full bg-[#7f8b63] animate-bounce [animation-delay:120ms] dark:bg-emerald-400"></span>
+            <span class="h-2 w-2 rounded-full bg-[#7f8b63] animate-bounce [animation-delay:240ms] dark:bg-emerald-400"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sources -->
+      <div *ngIf="lastSources?.length" class="mt-2 border-t border-dashed border-[#d8cd97] pt-3 dark:border-slate-700/80">
+        <button
+          type="button"
+          (click)="showSources = !showSources"
+          class="flex w-full items-center justify-between gap-3 rounded-2xl border border-[#d8cd97] bg-white/40 px-4 py-3 text-left text-sm font-medium text-[#4d4938] transition hover:bg-white/65
+                 dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-200 dark:hover:bg-slate-800"
+        >
+          <span>Sources ({{ lastSources.length }})</span>
+          <span class="text-[#6e694f] dark:text-slate-400">{{ showSources ? '▾' : '▸' }}</span>
+        </button>
+
+        <div *ngIf="showSources" class="mt-3 flex flex-col gap-2">
+          <div
+            *ngFor="let s of lastSources"
+            class="rounded-xl border-l-2 border-[#94a06f] bg-white/25 px-3 py-2 text-xs sm:text-sm text-[#625d48]
+                   dark:border-emerald-400/70 dark:bg-slate-900/55 dark:text-slate-300"
+          >
+            {{ s }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="border-t border-[#ddd2a4] bg-[#f3ebc4]/80 px-3 py-3 sm:px-4 dark:border-slate-700/80 dark:bg-slate-950/50">
+    <form (ngSubmit)="onSend()" class="flex items-center gap-2 sm:gap-3">
+      <input
+        [(ngModel)]="draft"
+        name="draft"
+        autocomplete="off"
+        placeholder="Ask a question…"
+        [disabled]="loading"
+        class="h-12 flex-1 rounded-2xl border border-[#d8cd97] bg-white/70 px-4 text-sm text-[#2f2c22] outline-none placeholder:text-[#8a8469]
+               focus:border-[#98a574] focus:bg-white
+               dark:border-slate-700 dark:bg-slate-900/80 dark:text-slate-100 dark:placeholder:text-slate-500 dark:focus:border-emerald-500 dark:focus:bg-slate-900"
+      />
+
+      <button
+        type="submit"
+        [disabled]="loading || !draft.trim()"
+        class="h-12 shrink-0 rounded-2xl bg-[linear-gradient(135deg,#2f2c22,#5b6543)] px-4 sm:px-5 text-sm font-semibold text-white shadow-sm transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-60
+               dark:bg-[linear-gradient(135deg,#2563eb,#0f766e)] dark:shadow-[0_10px_24px_rgba(37,99,235,0.22)]"
+      >
+        Send
+      </button>
+    </form>
+
+    <div class="mt-2 px-1 text-[11px] sm:text-xs text-[#7a745c] dark:text-slate-400">
+      Tip: ask “What did I do at Citibank?”
+    </div>
+  </footer>
+</section>
