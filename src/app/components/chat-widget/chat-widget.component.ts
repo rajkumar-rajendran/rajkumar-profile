@@ -1,79 +1,109 @@
-import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Inject,
+  Input,
+  Output,
+  PLATFORM_ID,
+  ViewChild
+} from '@angular/core';
 import { FormsModule } from '@angular/forms';
-export type ChatRole = 'user' | 'assistant';
-
-export interface ChatMessage {
-  role: ChatRole;
-  content: string;
-  ts: number;
-}
-
-export interface ChatResponse {
-  sessionId: string;
-  answer: string;
-  sources: string[];
-}
 
 @Component({
   selector: 'app-chat-widget',
   standalone: true,
-  imports: [FormsModule, CommonModule],
-  templateUrl: './chat-widget.component.html',
-  styleUrls: ['./chat-widget.component.css']
+  imports: [CommonModule, FormsModule],
+  templateUrl: './chat-widget.component.html'
 })
 export class ChatWidgetComponent {
-   @Input() endpoint = 'http://localhost:8080/api/chat';
+  @Input() endpoint = '';
   @Output() ask = new EventEmitter<string>();
+  @ViewChild('scrollArea') scrollArea?: ElementRef<HTMLDivElement>;
 
   open = false;
   loading = false;
   draft = '';
   showSources = false;
-
-  messages: ChatMessage[] = [];
   lastSources: string[] = [];
+  messages: { role: 'user' | 'assistant'; content: string; ts: number }[] = [];
 
-  toggle() { this.open ? this.close() : this.openDrawer(); }
-  openDrawer() { this.open = true; }
-  close() { this.open = false; }
+  constructor(@Inject(PLATFORM_ID) private platformId: object) {}
 
-  reset() {
+  toggle(): void {
+    this.open = !this.open;
+    this.safeScrollToBottom();
+  }
+
+  openDrawer(): void {
+    this.open = true;
+    this.safeScrollToBottom();
+  }
+
+  close(): void {
+    this.open = false;
+  }
+
+  reset(): void {
     this.messages = [];
     this.lastSources = [];
     this.showSources = false;
+    this.loading = false;
     this.draft = '';
   }
 
-  sendQuick(q: string) {
-    this.draft = q;
-    this.onSend();
-  }
+  onSend(): void {
+    const value = this.draft.trim();
+    if (!value || this.loading) return;
 
-  onSend() {
-    const text = this.draft.trim();
-    if (!text || this.loading) return;
     this.draft = '';
-    this.showSources = false;
-    this.ask.emit(text);
+    this.ask.emit(value);
   }
 
-  // Helper for nice timestamps
-  formatTime(ts: number) {
-    const d = new Date(ts);
-    const hh = String(d.getHours()).padStart(2,'0');
-    const mm = String(d.getMinutes()).padStart(2,'0');
-    return `${hh}:${mm}`;
+  sendQuick(prompt: string): void {
+    if (this.loading) return;
+    this.ask.emit(prompt);
   }
 
-  // Methods used by parent to update UI
-  pushUser(text: string) {
-    this.messages.push({ role: 'user', content: text, ts: Date.now() });
+  pushUser(content: string): void {
+    this.messages.push({ role: 'user', content, ts: Date.now() });
+    this.safeScrollToBottom();
   }
-  pushAssistant(text: string) {
-    this.messages.push({ role: 'assistant', content: text, ts: Date.now() });
-  }
-  setLoading(v: boolean) { this.loading = v; }
-  setSources(src: string[]) { this.lastSources = src ?? []; }
 
+  pushAssistant(content: string): void {
+    this.messages.push({ role: 'assistant', content, ts: Date.now() });
+    this.safeScrollToBottom();
+  }
+
+  setLoading(value: boolean): void {
+    this.loading = value;
+    this.safeScrollToBottom();
+  }
+
+  setSources(sources: string[]): void {
+    this.lastSources = sources ?? [];
+  }
+
+  formatTime(ts: number): string {
+    if (!isPlatformBrowser(this.platformId)) {
+      return '';
+    }
+
+    return new Date(ts).toLocaleTimeString([], {
+      hour: '2-digit',
+      minute: '2-digit'
+    });
+  }
+
+  private safeScrollToBottom(): void {
+    if (!isPlatformBrowser(this.platformId)) return;
+
+    setTimeout(() => {
+      const el = this.scrollArea?.nativeElement;
+      if (el) {
+        el.scrollTop = el.scrollHeight;
+      }
+    }, 0);
+  }
 }
