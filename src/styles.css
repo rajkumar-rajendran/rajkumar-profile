@@ -1,93 +1,99 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap');
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
+
 html {
   scroll-behavior: smooth;
 }
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Reusable chips */
 .chip {
-  @apply rounded-full border border-[#cfc48f] bg-[#f5edc8] px-3 py-1 text-sm text-[#4f4b3a]
+  @apply rounded-full border border-[#cfc48f] bg-[#f5edc8] px-3.5 py-2 text-sm font-medium text-[#4f4b3a]
          dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200;
 }
 
 .mini-chip {
-  @apply rounded-full border border-[#d5ca96] bg-[#f4ecc7] px-3 py-2 text-xs font-medium text-[#4e4a39]
+  @apply rounded-full border border-[#d5ca96] bg-[#f4ecc7] px-3.5 py-2 text-sm font-medium text-[#4e4a39]
          hover:bg-[#ece2b5] transition
          dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700;
 }
 
+/* Section label */
 .section-label {
-  @apply inline-flex items-center rounded-full border border-[#d7cb95] bg-[#f3e9bf] px-3 py-1 text-[11px] font-semibold tracking-[0.15em] text-[#776f4b]
+  @apply inline-flex items-center rounded-full border border-[#d7cb95] bg-[#f3e9bf] px-3 py-1.5 text-xs font-semibold tracking-[0.18em] text-[#776f4b]
          dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300;
 }
 
+/* Portal cards */
 .portal-card {
-  @apply relative rounded-[22px] border border-[#d9ce9c] bg-[#f8f8f7] p-6 min-h-[220px]
+  @apply relative rounded-[22px] border border-[#d9ce9c] bg-[#f8f8f7] p-5 sm:p-6 min-h-[220px]
          shadow-[0_8px_24px_rgba(90,80,30,0.06)]
-         hover:-translate-y-1 hover:shadow-[0_18px_30px_rgba(80,70,25,0.09)]
          transition duration-300
          dark:border-slate-700 dark:bg-slate-800;
-}
-
-.portal-id {
-  @apply text-xs font-semibold text-emerald-500;
-}
-
-.portal-icon {
-  @apply absolute right-5 top-5 text-xl text-emerald-500;
-}
-
-.portal-title {
-  @apply mt-8 text-xl font-semibold tracking-[-0.02em] text-[#2e2c25]
-         dark:text-slate-100;
-}
-
-.portal-text {
-  @apply mt-3 text-sm leading-6 text-[#67624f]
-         dark:text-slate-400;
-}
-
-.timeline-card {
-  @apply rounded-[20px] border-l-4 border-l-emerald-400 border border-[#d9ce9c] bg-[#efe6bd]/40 px-5 py-5
-         dark:border-slate-700 dark:bg-slate-900/40;
-}
-
-.timeline-title {
-  @apply text-lg sm:text-xl font-semibold text-[#2d2b23]
-         dark:text-slate-100;
-}
-
-.timeline-subtitle {
-  @apply mt-1 text-sm text-[#66614e]
-         dark:text-slate-400;
-}
-
-.timeline-list {
-  @apply mt-4 space-y-2 text-sm leading-6 text-[#54503f] list-disc pl-5
-         dark:text-slate-300;
-}
-
-.year-pill {
-  @apply inline-flex h-fit rounded-full border border-[#cad89f] bg-[#dce8ba] px-3 py-1 text-xs font-medium text-[#4f6643]
-         dark:border-emerald-900 dark:bg-emerald-950/40 dark:text-emerald-300;
-}
-
-.tag {
-  @apply rounded-full border border-[#d6ca95] bg-[#f6efcb] px-3 py-1 text-xs text-[#55513f]
-         dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200;
-}
-
-.animate-fade-up {
-  animation: fadeUp 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
-.portal-card {
-  @apply relative rounded-[22px] border border-[#d9ce9c] bg-[#f8f8f7] p-6 min-h-[220px];
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .portal-card:hover {
   transform: translateY(-6px) scale(1.01);
-  box-shadow: 0 20px 40px rgba(80,70,25,0.12);
+  box-shadow: 0 20px 40px rgba(80, 70, 25, 0.12);
+}
+
+.portal-id {
+  @apply text-sm font-semibold text-emerald-600 dark:text-emerald-400;
+}
+
+.portal-icon {
+  @apply absolute right-5 top-5 text-xl text-emerald-600 dark:text-emerald-400;
+}
+
+.portal-title {
+  @apply mt-8 text-xl lg:text-[1.35rem] font-semibold tracking-[-0.02em] text-[#2e2c25]
+         dark:text-white;
+}
+
+.portal-text {
+  @apply mt-3 text-base lg:text-[17px] leading-7 text-[#67624f]
+         dark:text-slate-300;
+}
+
+/* Timeline */
+.timeline-card {
+  @apply rounded-[20px] border-l-4 border-l-emerald-400 border border-[#d9ce9c] bg-[#efe6bd]/40 px-5 py-5 sm:px-6 sm:py-6
+         dark:border-slate-700 dark:bg-slate-900/40;
+}
+
+.timeline-title {
+  @apply text-xl lg:text-[1.35rem] font-semibold text-[#2d2b23]
+         dark:text-white;
+}
+
+.timeline-subtitle {
+  @apply mt-1 text-base lg:text-[17px] text-[#66614e]
+         dark:text-slate-300;
+}
+
+.timeline-list {
+  @apply mt-4 space-y-3 text-base lg:text-[17px] leading-7 text-[#54503f] list-disc pl-5
+         dark:text-slate-200;
+}
+
+.year-pill {
+  @apply inline-flex h-fit rounded-full border border-[#cad89f] bg-[#dce8ba] px-3.5 py-1.5 text-sm font-medium text-[#4f6643]
+         dark:border-emerald-900 dark:bg-emerald-950/40 dark:text-emerald-300;
+}
+
+.tag {
+  @apply rounded-full border border-[#d6ca95] bg-[#f6efcb] px-3.5 py-1.5 text-sm font-medium text-[#55513f]
+         dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200;
+}
+
+/* Animation */
+.animate-fade-up {
+  animation: fadeUp 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 @keyframes fadeUp {
