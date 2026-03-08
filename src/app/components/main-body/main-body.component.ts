@@ -8,7 +8,7 @@ import { FooterComponent } from '../footer/footer.component';
 @Component({
   selector: 'app-main-body',
   standalone: true,
-  imports: [ CommonModule],
+  imports: [ CommonModule, ChatWidgetComponent],
   templateUrl: './main-body.component.html',
   styleUrls: ['./main-body.component.css']
 })

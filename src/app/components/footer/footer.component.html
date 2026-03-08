@@ -1,14 +1,43 @@
- <footer class="footer">
-    <div class="container footer__inner">
-      <div>
-        <div class="footer__brand">Rajkumar Rajendran</div>
-        <div class="footer__muted">© {{ year }}</div>
+<footer class="relative border-t border-[#d9ce9c] bg-[#efe6bd]/75 dark:border-slate-800 dark:bg-[#050b18]/85">
+  <div class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-emerald-500/40 to-transparent dark:via-emerald-400/30"></div>
+
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
+    <div class="flex flex-col gap-5 py-6 sm:py-7 md:flex-row md:items-center md:justify-between">
+      <div class="text-center md:text-left">
+        <div class="text-lg font-semibold tracking-[-0.02em] text-[#2f2c22] dark:text-white">
+          Rajkumar Rajendran
+        </div>
+        <div class="mt-1 text-sm text-[#6c664f] dark:text-slate-400">
+          © {{ year }} · Software Engineer · Low Latency · Reliability · Scale
+        </div>
       </div>
 
-      <div class="footer__right">
-        <a href="mailto:rajzp1@gmail.com">Email</a>
-        <a href="https://linkedin.com/in/raj10/" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://github.com/YOUR_GITHUB" target="_blank" rel="noopener">GitHub</a>
+      <div class="flex flex-wrap items-center justify-center gap-x-5 gap-y-3 md:justify-end">
+        <a
+          href="mailto:rajzp1@gmail.com"
+          class="text-sm sm:text-base font-medium text-[#4f4b3a] transition hover:text-emerald-700 dark:text-slate-300 dark:hover:text-emerald-400"
+        >
+          Email
+        </a>
+
+        <a
+          href="https://linkedin.com/in/raj10/"
+          target="_blank"
+          rel="noopener"
+          class="text-sm sm:text-base font-medium text-[#4f4b3a] transition hover:text-emerald-700 dark:text-slate-300 dark:hover:text-emerald-400"
+        >
+          LinkedIn
+        </a>
+
+        <a
+          href="https://github.com/YOUR_GITHUB"
+          target="_blank"
+          rel="noopener"
+          class="text-sm sm:text-base font-medium text-[#4f4b3a] transition hover:text-emerald-700 dark:text-slate-300 dark:hover:text-emerald-400"
+        >
+          GitHub
+        </a>
       </div>
     </div>
-  </footer> 
+  </div>
+</footer>

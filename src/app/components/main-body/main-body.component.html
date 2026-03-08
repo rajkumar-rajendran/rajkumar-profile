@@ -15,61 +15,60 @@
   >
     <!-- Top status bar -->
     <section class="w-full px-4 sm:px-6 lg:px-10 pt-4">
-      <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3 text-[11px] sm:text-xs text-[#6b6a55] dark:text-slate-400">
+      <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3 text-sm text-[#6b6a55] dark:text-slate-400">
         <div class="flex flex-wrap items-center gap-3 sm:gap-5">
-          <span class="inline-flex items-center gap-1 rounded-full border border-[#d5cb94] bg-[#f4edc8] px-3 py-1 dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-200">
-            <span class="h-2 w-2 rounded-full bg-orange-400"></span>
+          <span class="inline-flex items-center gap-2 rounded-full border border-[#d5cb94] bg-[#f4edc8] px-3.5 py-1.5 text-sm font-medium dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-200">
+            <span class="h-2.5 w-2.5 rounded-full bg-orange-400"></span>
             OPEN TO WORK
           </span>
           <span>📍 Dallas, TX</span>
           <span>🌐 Remote</span>
           <span>✈️ Relocate OK</span>
         </div>
-
       </div>
     </section>
 
     <!-- Hero -->
-    <section class="relative px-4 sm:px-6 lg:px-10 pt-10 sm:pt-14 pb-10">
+    <section class="relative px-4 sm:px-6 lg:px-10 pt-6 sm:pt-10 pb-10">
       <div class="max-w-7xl mx-auto">
         <div
-          class="relative rounded-[32px] border border-[#dbc98e]
+          class="relative rounded-[24px] sm:rounded-[32px] border border-[#dbc98e]
                  bg-[linear-gradient(135deg,#f7c98b_0%,#f2d7aa_45%,#dbe8b7_100%)]
                  dark:border-slate-700/80
                  dark:bg-[linear-gradient(135deg,rgba(15,23,42,0.92)_0%,rgba(20,31,56,0.92)_45%,rgba(16,25,45,0.92)_100%)]
-                 px-6 py-8 sm:px-10 sm:py-10
+                 px-5 py-6 sm:px-10 sm:py-10
                  shadow-[0_20px_60px_rgba(85,80,40,0.12)]
                  dark:shadow-[0_30px_100px_rgba(0,0,0,0.45)]
                  animate-fade-up overflow-hidden"
         >
-          <div class="absolute inset-0 rounded-[32px] pointer-events-none bg-white/10 dark:bg-white/[0.03]"></div>
+          <div class="absolute inset-0 rounded-[24px] sm:rounded-[32px] pointer-events-none bg-white/10 dark:bg-white/[0.03]"></div>
           <div class="pointer-events-none absolute -top-24 -left-24 hidden h-72 w-72 rounded-full bg-emerald-400/10 blur-3xl dark:block"></div>
           <div class="pointer-events-none absolute bottom-0 right-0 hidden h-80 w-80 rounded-full bg-blue-400/10 blur-3xl dark:block"></div>
 
-          <div class="relative flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
+          <div class="relative flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
             <div class="flex-1 min-w-0 lg:pr-6">
-             <p class="mb-2 text-sm sm:text-base text-[#6d6647] dark:text-slate-400">
-                  Hello, I’m
+              <p class="mb-2 text-base sm:text-lg text-[#6d6647] dark:text-slate-400">
+                Hello, I’m
+              </p>
+
+              <h1 class="text-[2.2rem] sm:text-5xl lg:text-[3.25rem] font-black tracking-[-0.03em] leading-[0.95] text-[#2b2b2b] dark:text-white">
+                Rajkumar Rajendran
+              </h1>
+
+              <div class="mt-3 h-1.5 w-24 rounded-full bg-emerald-500 shadow-[0_0_20px_rgba(16,185,129,0.45)]"></div>
+
+              <div class="mt-5 min-h-[40px] sm:min-h-[44px]">
+                <p class="text-lg sm:text-xl lg:text-[1.35rem] font-semibold text-[#3f4c3a] dark:text-emerald-300">
+                  {{ displayedRole }}<span class="animate-pulse">|</span>
                 </p>
+              </div>
 
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-[-0.03em] leading-[0.95] text-[#2b2b2b] dark:text-white">
-                  Rajkumar Rajendran
-                </h1>
+              <p class="mt-4 max-w-3xl text-base sm:text-lg lg:text-[1.05rem] text-[#5a5748] dark:text-slate-300 leading-7 sm:leading-8">
+                Backend-focused software engineer building scalable, low-latency systems with
+                Java, Spring Boot, microservices, cloud platforms, caching, and resilient API integrations.
+              </p>
 
-                <div class="mt-3 h-1 w-24 rounded-full bg-emerald-500 shadow-[0_0_20px_rgba(16,185,129,0.45)]"></div>
-
-                <div class="mt-5 min-h-[36px] sm:min-h-[40px]">
-                  <p class="text-base sm:text-lg lg:text-xl font-semibold text-[#3f4c3a] dark:text-emerald-300">
-                    {{ displayedRole }}<span class="animate-pulse">|</span>
-                  </p>
-                </div>
-
-                <p class="mt-3 max-w-3xl text-sm sm:text-base lg:text-lg text-[#5a5748] dark:text-slate-300 leading-7">
-                  Backend-focused software engineer building scalable, low-latency systems with
-                  Java, Spring Boot, microservices, cloud platforms, caching, and resilient API integrations.
-                </p>
-
-              <div class="mt-6 flex flex-wrap items-center gap-4 text-sm text-[#55513f] dark:text-slate-400">
+              <div class="mt-6 flex flex-wrap items-center gap-x-4 gap-y-3 text-base lg:text-[1rem] text-[#55513f] dark:text-slate-400">
                 <a href="mailto:rajzp1@gmail.com" class="hover:text-emerald-700 dark:hover:text-emerald-400 transition">✉ Email</a>
                 <a href="https://linkedin.com/in/raj10/" target="_blank" rel="noopener" class="hover:text-emerald-700 dark:hover:text-emerald-400 transition">in LinkedIn</a>
                 <button (click)="openChat()" class="hover:text-emerald-700 dark:hover:text-emerald-400 transition">✦ Ask Raj AI</button>
@@ -77,14 +76,14 @@
 
               <div class="mt-7 flex flex-col sm:flex-row gap-3">
                 <button
-                  class="rounded-2xl bg-[#2d2d2d] text-white px-5 py-3 font-medium hover:-translate-y-0.5 hover:shadow-lg transition dark:bg-white dark:text-[#0b1020] dark:hover:bg-slate-100"
+                  class="min-h-[52px] rounded-2xl bg-[#2d2d2d] text-white px-6 py-3.5 text-base lg:text-[1rem] font-medium hover:-translate-y-0.5 hover:shadow-lg transition dark:bg-white dark:text-[#0b1020] dark:hover:bg-slate-100"
                   (click)="openChat()"
                 >
                   Ask AI about my experience
                 </button>
 
                 <a
-                  class="rounded-2xl border border-[#bfb47e] bg-[#efe6bd]/70 px-5 py-3 font-medium hover:-translate-y-0.5 hover:shadow-md transition text-center dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-100 dark:hover:bg-slate-800"
+                  class="min-h-[52px] rounded-2xl border border-[#bfb47e] bg-[#efe6bd]/70 px-6 py-3.5 text-base lg:text-[1rem] font-medium hover:-translate-y-0.5 hover:shadow-md transition text-center dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-100 dark:hover:bg-slate-800"
                   href="/assets/Rajkumar_Rajendran_Resume.pdf"
                   target="_blank"
                   rel="noopener"
@@ -93,7 +92,7 @@
                 </a>
               </div>
 
-              <div class="mt-6 flex flex-wrap gap-2">
+              <div class="mt-6 flex flex-wrap gap-2.5">
                 <span class="chip">Java</span>
                 <span class="chip">Spring Boot</span>
                 <span class="chip">Microservices</span>
@@ -104,24 +103,24 @@
               </div>
             </div>
 
-            <aside class="w-full lg:w-[340px] rounded-[24px] border border-white/40 bg-[#f6f1d2]/70 backdrop-blur-md p-5 shadow-sm dark:border-slate-700/80 dark:bg-slate-900/65 dark:shadow-[0_20px_50px_rgba(0,0,0,0.30)]">
+            <aside class="w-full lg:w-[340px] rounded-[24px] border border-white/40 bg-[#f6f1d2]/70 backdrop-blur-md p-5 sm:p-6 shadow-sm dark:border-slate-700/80 dark:bg-slate-900/65 dark:shadow-[0_20px_50px_rgba(0,0,0,0.30)]">
               <div class="flex items-center gap-4">
-                <div class="h-14 w-14 rounded-full bg-[#2d2d2d] text-white flex items-center justify-center font-bold text-lg dark:bg-white dark:text-[#0b1020]">
+                <div class="h-16 w-16 rounded-full bg-[#2d2d2d] text-white flex items-center justify-center font-bold text-xl dark:bg-white dark:text-[#0b1020]">
                   RR
                 </div>
                 <div class="min-w-0">
-                  <div class="font-semibold text-lg truncate text-[#2f2c22] dark:text-white">Rajkumar Rajendran</div>
-                  <div class="text-sm text-[#6a664f] dark:text-slate-400">Software Developer</div>
+                  <div class="font-semibold text-xl truncate text-[#2f2c22] dark:text-white">Rajkumar Rajendran</div>
+                  <div class="text-base text-[#6a664f] dark:text-slate-400">Software Developer</div>
                 </div>
               </div>
 
-              <div class="mt-5 space-y-3 text-sm">
-                <div class="flex items-start justify-between gap-3 border-b border-[#ddd3a5] pb-2 dark:border-slate-700">
+              <div class="mt-5 space-y-4 text-base">
+                <div class="flex items-start justify-between gap-3 border-b border-[#ddd3a5] pb-3 dark:border-slate-700">
                   <span class="text-[#76715c] dark:text-slate-400">Focus</span>
                   <span class="text-right font-medium text-[#2f2c22] dark:text-slate-100">Low latency · Reliability · Scale</span>
                 </div>
-                <div class="flex items-start justify-between gap-3 border-b border-[#ddd3a5] pb-2 dark:border-slate-700">
-                  <span class="text-[#76715c] dark:text-slate-400">Current</span>
+                <div class="flex items-start justify-between gap-3 border-b border-[#ddd3a5] pb-3 dark:border-slate-700">
+                  <span class="text-[#76715c] dark:text-slate-400">Recent</span>
                   <span class="text-right font-medium text-[#2f2c22] dark:text-slate-100">TCS - Citibank</span>
                 </div>
                 <div class="flex items-start justify-between gap-3 pb-1">
@@ -131,8 +130,8 @@
               </div>
 
               <div class="mt-5 pt-5 border-t border-[#ddd3a5] dark:border-slate-700">
-                <div class="text-sm font-semibold text-[#2f2c22] dark:text-white">Quick prompts</div>
-                <div class="mt-3 flex flex-wrap gap-2">
+                <div class="text-base font-semibold text-[#2f2c22] dark:text-white">Quick prompts</div>
+                <div class="mt-3 flex flex-wrap gap-2.5">
                   <button class="mini-chip" (click)="handleAsk('Summarize my backend experience in 3 bullets')">Summary</button>
                   <button class="mini-chip" (click)="handleAsk('Tell me about my low latency and caching work')">Low latency</button>
                   <button class="mini-chip" (click)="handleAsk('What cloud and migration work have I done?')">Cloud</button>
@@ -148,54 +147,54 @@
     <section class="px-4 sm:px-6 lg:px-10 pb-14">
       <div class="max-w-7xl mx-auto">
         <div class="mb-6">
-          <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-[#2f2c22] dark:text-white">
+          <h2 class="text-3xl sm:text-3xl lg:text-[2rem] font-bold tracking-tight text-[#2f2c22] dark:text-white">
             What I Bring
           </h2>
-          <p class="text-sm sm:text-base text-[#6c664f] dark:text-slate-400 mt-1">
+          <p class="text-base lg:text-[1rem] text-[#6c664f] dark:text-slate-400 mt-2">
             Core strengths I bring to backend and platform engineering teams
           </p>
         </div>
 
         <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          <div class="flex items-start gap-4 rounded-2xl border border-[#d9ce9c] bg-[#f7f1cf]/70 dark:border-slate-700/80 dark:bg-slate-900/65 p-5 shadow-sm hover:-translate-y-1 transition">
-            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#2f2c22] text-white dark:bg-white dark:text-[#0b1020]">
+          <div class="flex items-start gap-4 rounded-2xl border border-[#d9ce9c] bg-[#f7f1cf]/70 dark:border-slate-700/80 dark:bg-slate-900/65 p-5 sm:p-6 shadow-sm hover:-translate-y-1 transition">
+            <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#2f2c22] text-white text-lg dark:bg-white dark:text-[#0b1020]">
               ⚡
             </div>
             <div>
-              <h3 class="font-semibold text-[#2f2c22] dark:text-slate-100">
+              <h3 class="text-lg lg:text-[1.2rem] font-semibold text-[#2f2c22] dark:text-slate-100">
                 High-performance backend systems
               </h3>
-              <p class="text-sm text-[#6e684e] dark:text-slate-400 mt-1 leading-6">
+              <p class="text-base lg:text-[1rem] text-[#6e684e] dark:text-slate-400 mt-2 leading-7">
                 Building low-latency Java and Spring Boot services with caching,
                 async processing, and optimized database access.
               </p>
             </div>
           </div>
 
-          <div class="flex items-start gap-4 rounded-2xl border border-[#d9ce9c] bg-[#f7f1cf]/70 dark:border-slate-700/80 dark:bg-slate-900/65 p-5 shadow-sm hover:-translate-y-1 transition">
-            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#2f2c22] text-white dark:bg-white dark:text-[#0b1020]">
+          <div class="flex items-start gap-4 rounded-2xl border border-[#d9ce9c] bg-[#f7f1cf]/70 dark:border-slate-700/80 dark:bg-slate-900/65 p-5 sm:p-6 shadow-sm hover:-translate-y-1 transition">
+            <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#2f2c22] text-white text-lg dark:bg-white dark:text-[#0b1020]">
               ☁
             </div>
             <div>
-              <h3 class="font-semibold text-[#2f2c22] dark:text-slate-100">
+              <h3 class="text-lg lg:text-[1.2rem] font-semibold text-[#2f2c22] dark:text-slate-100">
                 Cloud-native microservice architecture
               </h3>
-              <p class="text-sm text-[#6e684e] dark:text-slate-400 mt-1 leading-6">
+              <p class="text-base lg:text-[1rem] text-[#6e684e] dark:text-slate-400 mt-2 leading-7">
                 Designing resilient distributed systems deployed on Kubernetes,
                 OpenShift, and modern cloud platforms.
               </p>
             </div>
           </div>
 
-          <div class="flex items-start gap-4 rounded-2xl border border-[#d9ce9c] bg-[#f7f1cf]/70 dark:border-slate-700/80 dark:bg-slate-900/65 p-5 shadow-sm hover:-translate-y-1 transition">
-            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#2f2c22] text-white dark:bg-white dark:text-[#0b1020]">
+          <div class="flex items-start gap-4 rounded-2xl border border-[#d9ce9c] bg-[#f7f1cf]/70 dark:border-slate-700/80 dark:bg-slate-900/65 p-5 sm:p-6 shadow-sm hover:-translate-y-1 transition">
+            <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#2f2c22] text-white text-lg dark:bg-white dark:text-[#0b1020]">
               🔧
             </div>
             <div>
-              <h3 class="font-semibold text-[#2f2c22] dark:text-slate-100">
+              <h3 class="text-lg lg:text-[1.2rem] font-semibold text-[#2f2c22] dark:text-slate-100">
                 Reliable large-scale APIs
               </h3>
-              <p class="text-sm text-[#6e684e] dark:text-slate-400 mt-1 leading-6">
+              <p class="text-base lg:text-[1rem] text-[#6e684e] dark:text-slate-400 mt-2 leading-7">
                 Building secure APIs with OAuth2/JWT, API gateways, monitoring,
                 and reliability practices for enterprise workloads.
               </p>
@@ -207,7 +206,7 @@
   </div>
 
   <!-- Main content -->
-  <main class="relative px-4 sm:px-6 lg:px-10 pt-10 pb-20">
+  <main class="relative px-4 sm:px-6 lg:px-10 pt-8 sm:pt-10 pb-20">
     <div class="max-w-7xl mx-auto">
       <div class="section-label">PORTALS</div>
 
@@ -225,7 +224,7 @@
         <article class="portal-card animate-fade-up [animation-delay:140ms]">
           <div class="portal-id">#002</div>
           <div class="portal-icon">◫</div>
-          <h3 class="portal-title">Cloud & Migration</h3>
+          <h3 class="portal-title">Cloud &amp; Migration</h3>
           <p class="portal-text">
             Migrated services from PCF to OpenShift, deployed to GKE, and automated infrastructure using Terraform.
           </p>
@@ -252,7 +251,7 @@
         <article class="portal-card animate-fade-up [animation-delay:320ms]">
           <div class="portal-id">#005</div>
           <div class="portal-icon">&lt;/&gt;</div>
-          <h3 class="portal-title">Frontend & Angular</h3>
+          <h3 class="portal-title">Frontend &amp; Angular</h3>
           <p class="portal-text">
             Angular-based UI development with Signals, resource API, REST integration, and responsive data-driven interfaces.
           </p>
@@ -408,3 +407,9 @@
     </div>
   </main>
 </div>
+
+<app-chat-widget
+  #chatWidget
+  [endpoint]="apiUrl"
+  (ask)="handleAsk($event)">
+</app-chat-widget>
