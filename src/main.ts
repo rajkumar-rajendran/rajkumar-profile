@@ -1,12 +1,7 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { provideHttpClient, withFetch } from '@angular/common/http';
 import { AppComponent } from './app/app.component';
-import { provideZoneChangeDetection } from '@angular/core';
+import { appConfig } from './app/app.config'; // 1. Import your config
 
-
-bootstrapApplication(AppComponent, {
-  providers: [
-    provideZoneChangeDetection({ eventCoalescing: true }),
-    provideHttpClient(withFetch())
-  ]
-}).catch(err => console.error(err));
+// 2. Pass appConfig as the second argument
+bootstrapApplication(AppComponent, appConfig)
+  .catch(err => console.error(err));
