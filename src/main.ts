@@ -3,6 +3,7 @@ import { provideHttpClient, withFetch } from '@angular/common/http';
 import { AppComponent } from './app/app.component';
 import { provideZoneChangeDetection } from '@angular/core';
 
+
 bootstrapApplication(AppComponent, {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),

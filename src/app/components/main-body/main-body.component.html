@@ -14,10 +14,10 @@
            dark:shadow-none"
   >
     <!-- Top status bar -->
-    <section class="w-full px-4 sm:px-6 lg:px-10 pt-4">
-      <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3 text-sm text-[#6b6a55] dark:text-slate-400">
+    <section class="w-full px-4 sm:px-6 lg:px-8 pt-4">
+      <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-3 text-[10px] sm:text-[12px] text-[#6b6a55] dark:text-slate-400">
         <div class="flex flex-wrap items-center gap-3 sm:gap-5">
-          <span class="inline-flex items-center gap-2 rounded-full border border-[#d5cb94] bg-[#f4edc8] px-3.5 py-1.5 text-sm font-medium dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-200">
+          <span class="inline-flex items-center gap-2 rounded-full border border-[#d5cb94] bg-[#f4edc8] px-2 py-1.0 text-[9px] sm:text-[10px] font-medium dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-200">
             <span class="h-2.5 w-2.5 rounded-full bg-orange-400"></span>
             OPEN TO WORK
           </span>
@@ -29,61 +29,61 @@
     </section>
 
     <!-- Hero -->
-    <section class="relative px-4 sm:px-6 lg:px-10 pt-6 sm:pt-10 pb-10">
-      <div class="max-w-7xl mx-auto">
+    <section class="relative px-4 sm:px-6 lg:px-8 pt-5 sm:pt-7 pb-8 sm:pb-10">
+      <div class="max-w-6xl mx-auto">
         <div
-          class="relative rounded-[24px] sm:rounded-[32px] border border-[#dbc98e]
+          class="relative rounded-[24px] sm:rounded-[30px] border border-[#dbc98e]
                  bg-[linear-gradient(135deg,#f7c98b_0%,#f2d7aa_45%,#dbe8b7_100%)]
                  dark:border-slate-700/80
                  dark:bg-[linear-gradient(135deg,rgba(15,23,42,0.92)_0%,rgba(20,31,56,0.92)_45%,rgba(16,25,45,0.92)_100%)]
-                 px-5 py-6 sm:px-10 sm:py-10
+                 px-5 py-6 sm:px-8 sm:py-8 lg:px-10 lg:py-10
                  shadow-[0_20px_60px_rgba(85,80,40,0.12)]
                  dark:shadow-[0_30px_100px_rgba(0,0,0,0.45)]
                  animate-fade-up overflow-hidden"
         >
-          <div class="absolute inset-0 rounded-[24px] sm:rounded-[32px] pointer-events-none bg-white/10 dark:bg-white/[0.03]"></div>
+          <div class="absolute inset-0 rounded-[24px] sm:rounded-[30px] pointer-events-none bg-white/10 dark:bg-white/[0.03]"></div>
           <div class="pointer-events-none absolute -top-24 -left-24 hidden h-72 w-72 rounded-full bg-emerald-400/10 blur-3xl dark:block"></div>
           <div class="pointer-events-none absolute bottom-0 right-0 hidden h-80 w-80 rounded-full bg-blue-400/10 blur-3xl dark:block"></div>
 
-          <div class="relative flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between">
-            <div class="flex-1 min-w-0 lg:pr-6">
-              <p class="mb-2 text-base sm:text-lg text-[#6d6647] dark:text-slate-400">
+          <div class="relative grid gap-6 lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-8 xl:grid-cols-[minmax(0,1fr)_340px]">
+            <div class="min-w-0">
+              <p class="mb-2 text-sm sm:text-base text-[#6d6647] dark:text-slate-400">
                 Hello, I’m
               </p>
 
-              <h1 class="text-[2.2rem] sm:text-5xl lg:text-[3.25rem] font-black tracking-[-0.03em] leading-[0.95] text-[#2b2b2b] dark:text-white">
+             <h1 class="max-w-[12ch] text-[2rem] sm:text-[2.5rem] lg:text-[2.8rem] font-black tracking-[-0.035em] leading-[0.94] text-[#2b2b2b] dark:text-white">
                 Rajkumar Rajendran
               </h1>
 
-              <div class="mt-3 h-1.5 w-24 rounded-full bg-emerald-500 shadow-[0_0_20px_rgba(16,185,129,0.45)]"></div>
+              <div class="mt-4 h-1.5 w-24 rounded-full bg-emerald-500 shadow-[0_0_20px_rgba(16,185,129,0.45)]"></div>
 
-              <div class="mt-5 min-h-[40px] sm:min-h-[44px]">
-                <p class="text-lg sm:text-xl lg:text-[1.35rem] font-semibold text-[#3f4c3a] dark:text-emerald-300">
+              <div class="mt-5 min-h-[34px] sm:min-h-[38px]">
+                <p class="text-base sm:text-lg lg:text-[1.2rem] font-semibold text-[#3f4c3a] dark:text-emerald-300">
                   {{ displayedRole }}<span class="animate-pulse">|</span>
                 </p>
               </div>
 
-              <p class="mt-4 max-w-3xl text-base sm:text-lg lg:text-[1.05rem] text-[#5a5748] dark:text-slate-300 leading-7 sm:leading-8">
+              <p class="mt-4 max-w-2xl text-sm sm:text-base lg:text-[1rem] text-[#5a5748] dark:text-slate-300 leading-6 sm:leading-7">
                 Backend-focused software engineer building scalable, low-latency systems with
                 Java, Spring Boot, microservices, cloud platforms, caching, and resilient API integrations.
               </p>
 
-              <div class="mt-6 flex flex-wrap items-center gap-x-4 gap-y-3 text-base lg:text-[1rem] text-[#55513f] dark:text-slate-400">
+              <div class="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2 text-sm lg:text-[0.95rem] text-[#55513f] dark:text-slate-400">
                 <a href="mailto:rajzp1@gmail.com" class="hover:text-emerald-700 dark:hover:text-emerald-400 transition">✉ Email</a>
                 <a href="https://linkedin.com/in/raj10/" target="_blank" rel="noopener" class="hover:text-emerald-700 dark:hover:text-emerald-400 transition">in LinkedIn</a>
                 <button (click)="openChat()" class="hover:text-emerald-700 dark:hover:text-emerald-400 transition">✦ Ask Raj AI</button>
               </div>
 
-              <div class="mt-7 flex flex-col sm:flex-row gap-3">
+              <div class="mt-6 flex flex-col sm:flex-row gap-3">
                 <button
-                  class="min-h-[52px] rounded-2xl bg-[#2d2d2d] text-white px-6 py-3.5 text-base lg:text-[1rem] font-medium hover:-translate-y-0.5 hover:shadow-lg transition dark:bg-white dark:text-[#0b1020] dark:hover:bg-slate-100"
+                  class="min-h-[48px] rounded-2xl bg-[#2d2d2d] text-white px-5 py-3 text-sm lg:text-[0.95rem] font-medium hover:-translate-y-0.5 hover:shadow-lg transition dark:bg-white dark:text-[#0b1020] dark:hover:bg-slate-100"
                   (click)="openChat()"
                 >
                   Ask AI about my experience
                 </button>
 
                 <a
-                  class="min-h-[52px] rounded-2xl border border-[#bfb47e] bg-[#efe6bd]/70 px-6 py-3.5 text-base lg:text-[1rem] font-medium hover:-translate-y-0.5 hover:shadow-md transition text-center dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-100 dark:hover:bg-slate-800"
+                  class="min-h-[48px] rounded-2xl border border-[#bfb47e] bg-[#efe6bd]/70 px-5 py-3 text-sm lg:text-[0.95rem] font-medium hover:-translate-y-0.5 hover:shadow-md transition text-center dark:border-slate-700 dark:bg-slate-900/70 dark:text-slate-100 dark:hover:bg-slate-800"
                   href="/assets/Rajkumar_Rajendran_Resume.pdf"
                   target="_blank"
                   rel="noopener"
@@ -92,7 +92,7 @@
                 </a>
               </div>
 
-              <div class="mt-6 flex flex-wrap gap-2.5">
+              <div class="mt-6 flex flex-wrap gap-2">
                 <span class="chip">Java</span>
                 <span class="chip">Spring Boot</span>
                 <span class="chip">Microservices</span>
@@ -103,35 +103,38 @@
               </div>
             </div>
 
-            <aside class="w-full lg:w-[340px] rounded-[24px] border border-white/40 bg-[#f6f1d2]/70 backdrop-blur-md p-5 sm:p-6 shadow-sm dark:border-slate-700/80 dark:bg-slate-900/65 dark:shadow-[0_20px_50px_rgba(0,0,0,0.30)]">
-              <div class="flex items-center gap-4">
-                <div class="h-16 w-16 rounded-full bg-[#2d2d2d] text-white flex items-center justify-center font-bold text-xl dark:bg-white dark:text-[#0b1020]">
-                  RR
-                </div>
+            <aside class="hero-side-card">
+              <div class="flex items-center gap-5">
+                     <div class="profile-avatar">
+                      <img
+                        src="assets/image.jpg"
+                        alt="Rajkumar Rajendran"
+                      />
+                    </div>
                 <div class="min-w-0">
-                  <div class="font-semibold text-xl truncate text-[#2f2c22] dark:text-white">Rajkumar Rajendran</div>
-                  <div class="text-base text-[#6a664f] dark:text-slate-400">Software Developer</div>
+                  <div class="font-semibold text-lg truncate text-[#2f2c22] dark:text-white">Rajkumar Rajendran</div>
+                  <div class="text-sm text-[#6a664f] dark:text-slate-400">Software Developer</div>
                 </div>
               </div>
 
-              <div class="mt-5 space-y-4 text-base">
-                <div class="flex items-start justify-between gap-3 border-b border-[#ddd3a5] pb-3 dark:border-slate-700">
+              <div class="mt-5 space-y-3 text-sm">
+                <div class="hero-meta-row">
                   <span class="text-[#76715c] dark:text-slate-400">Focus</span>
                   <span class="text-right font-medium text-[#2f2c22] dark:text-slate-100">Low latency · Reliability · Scale</span>
                 </div>
-                <div class="flex items-start justify-between gap-3 border-b border-[#ddd3a5] pb-3 dark:border-slate-700">
+                <div class="hero-meta-row">
                   <span class="text-[#76715c] dark:text-slate-400">Recent</span>
                   <span class="text-right font-medium text-[#2f2c22] dark:text-slate-100">TCS - Citibank</span>
                 </div>
-                <div class="flex items-start justify-between gap-3 pb-1">
+                <div class="hero-meta-row no-border">
                   <span class="text-[#76715c] dark:text-slate-400">Location</span>
                   <span class="text-right font-medium text-[#2f2c22] dark:text-slate-100">Dallas, Texas</span>
                 </div>
               </div>
 
               <div class="mt-5 pt-5 border-t border-[#ddd3a5] dark:border-slate-700">
-                <div class="text-base font-semibold text-[#2f2c22] dark:text-white">Quick prompts</div>
-                <div class="mt-3 flex flex-wrap gap-2.5">
+                <div class="text-sm font-semibold text-[#2f2c22] dark:text-white">Quick prompts</div>
+                <div class="mt-3 flex flex-wrap gap-2">
                   <button class="mini-chip" (click)="handleAsk('Summarize my backend experience in 3 bullets')">Summary</button>
                   <button class="mini-chip" (click)="handleAsk('Tell me about my low latency and caching work')">Low latency</button>
                   <button class="mini-chip" (click)="handleAsk('What cloud and migration work have I done?')">Cloud</button>
@@ -144,57 +147,45 @@
     </section>
 
     <!-- What I Bring -->
-    <section class="px-4 sm:px-6 lg:px-10 pb-14">
-      <div class="max-w-7xl mx-auto">
-        <div class="mb-6">
-          <h2 class="text-3xl sm:text-3xl lg:text-[2rem] font-bold tracking-tight text-[#2f2c22] dark:text-white">
-            What I Bring
-          </h2>
-          <p class="text-base lg:text-[1rem] text-[#6c664f] dark:text-slate-400 mt-2">
-            Core strengths I bring to backend and platform engineering teams
-          </p>
+    <section class="px-4 sm:px-6 lg:px-8 pb-10">
+      <div class="max-w-6xl mx-auto">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title-main">What I Bring</h2>
+            <p class="section-subtext">
+              Core strengths I bring to backend and platform engineering teams
+            </p>
+          </div>
         </div>
 
         <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          <div class="flex items-start gap-4 rounded-2xl border border-[#d9ce9c] bg-[#f7f1cf]/70 dark:border-slate-700/80 dark:bg-slate-900/65 p-5 sm:p-6 shadow-sm hover:-translate-y-1 transition">
-            <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#2f2c22] text-white text-lg dark:bg-white dark:text-[#0b1020]">
-              ⚡
-            </div>
+          <div class="strength-card">
+            <div class="strength-icon">⚡</div>
             <div>
-              <h3 class="text-lg lg:text-[1.2rem] font-semibold text-[#2f2c22] dark:text-slate-100">
-                High-performance backend systems
-              </h3>
-              <p class="text-base lg:text-[1rem] text-[#6e684e] dark:text-slate-400 mt-2 leading-7">
+              <h3 class="strength-title">High-performance backend systems</h3>
+              <p class="strength-text">
                 Building low-latency Java and Spring Boot services with caching,
                 async processing, and optimized database access.
               </p>
             </div>
           </div>
 
-          <div class="flex items-start gap-4 rounded-2xl border border-[#d9ce9c] bg-[#f7f1cf]/70 dark:border-slate-700/80 dark:bg-slate-900/65 p-5 sm:p-6 shadow-sm hover:-translate-y-1 transition">
-            <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#2f2c22] text-white text-lg dark:bg-white dark:text-[#0b1020]">
-              ☁
-            </div>
+          <div class="strength-card">
+            <div class="strength-icon">☁</div>
             <div>
-              <h3 class="text-lg lg:text-[1.2rem] font-semibold text-[#2f2c22] dark:text-slate-100">
-                Cloud-native microservice architecture
-              </h3>
-              <p class="text-base lg:text-[1rem] text-[#6e684e] dark:text-slate-400 mt-2 leading-7">
+              <h3 class="strength-title">Cloud-native microservice architecture</h3>
+              <p class="strength-text">
                 Designing resilient distributed systems deployed on Kubernetes,
                 OpenShift, and modern cloud platforms.
               </p>
             </div>
           </div>
 
-          <div class="flex items-start gap-4 rounded-2xl border border-[#d9ce9c] bg-[#f7f1cf]/70 dark:border-slate-700/80 dark:bg-slate-900/65 p-5 sm:p-6 shadow-sm hover:-translate-y-1 transition">
-            <div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#2f2c22] text-white text-lg dark:bg-white dark:text-[#0b1020]">
-              🔧
-            </div>
+          <div class="strength-card">
+            <div class="strength-icon">🔧</div>
             <div>
-              <h3 class="text-lg lg:text-[1.2rem] font-semibold text-[#2f2c22] dark:text-slate-100">
-                Reliable large-scale APIs
-              </h3>
-              <p class="text-base lg:text-[1rem] text-[#6e684e] dark:text-slate-400 mt-2 leading-7">
+              <h3 class="strength-title">Reliable large-scale APIs</h3>
+              <p class="strength-text">
                 Building secure APIs with OAuth2/JWT, API gateways, monitoring,
                 and reliability practices for enterprise workloads.
               </p>
@@ -206,14 +197,21 @@
   </div>
 
   <!-- Main content -->
-  <main class="relative px-4 sm:px-6 lg:px-10 pt-8 sm:pt-10 pb-20">
-    <div class="max-w-7xl mx-auto">
-      <div class="section-label">PORTALS</div>
+  <main class="relative px-4 sm:px-6 lg:px-8 pt-6 sm:pt-8 pb-14">
+    <div class="max-w-6xl mx-auto">
+      <div class="section-head">
+        <div>
+          <div class="section-label">PORTALS</div>
+          <h2 class="section-title-main mt-4">Core experience areas</h2>
+        </div>
+      </div>
 
-      <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-5">
+      <div class="mt-6 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
         <article class="portal-card animate-fade-up [animation-delay:80ms]">
-          <div class="portal-id">#001</div>
-          <div class="portal-icon">△</div>
+          <div class="portal-card-top">
+            <div class="portal-id">#001</div>
+            <div class="portal-icon">△</div>
+          </div>
           <h3 class="portal-title">Backend Systems</h3>
           <p class="portal-text">
             Spring Boot microservices, distributed integration, API security, reliability ownership,
@@ -222,8 +220,10 @@
         </article>
 
         <article class="portal-card animate-fade-up [animation-delay:140ms]">
-          <div class="portal-id">#002</div>
-          <div class="portal-icon">◫</div>
+          <div class="portal-card-top">
+            <div class="portal-id">#002</div>
+            <div class="portal-icon">◫</div>
+          </div>
           <h3 class="portal-title">Cloud &amp; Migration</h3>
           <p class="portal-text">
             Migrated services from PCF to OpenShift, deployed to GKE, and automated infrastructure using Terraform.
@@ -231,8 +231,10 @@
         </article>
 
         <article class="portal-card animate-fade-up [animation-delay:200ms]">
-          <div class="portal-id">#003</div>
-          <div class="portal-icon">↗</div>
+          <div class="portal-card-top">
+            <div class="portal-id">#003</div>
+            <div class="portal-icon">↗</div>
+          </div>
           <h3 class="portal-title">Low Latency Work</h3>
           <p class="portal-text">
             WebClient-based async flows, caching with GemFire and Redis, query optimization, and response-time reduction.
@@ -240,8 +242,10 @@
         </article>
 
         <article class="portal-card animate-fade-up [animation-delay:260ms]">
-          <div class="portal-id">#004</div>
-          <div class="portal-icon">◔</div>
+          <div class="portal-card-top">
+            <div class="portal-id">#004</div>
+            <div class="portal-icon">◔</div>
+          </div>
           <h3 class="portal-title">AI Documentation Agent</h3>
           <p class="portal-text">
             Built an AI-powered documentation workflow triggered in CI/CD pull requests to reduce manual engineering effort.
@@ -249,8 +253,10 @@
         </article>
 
         <article class="portal-card animate-fade-up [animation-delay:320ms]">
-          <div class="portal-id">#005</div>
-          <div class="portal-icon">&lt;/&gt;</div>
+          <div class="portal-card-top">
+            <div class="portal-id">#005</div>
+            <div class="portal-icon">&lt;/&gt;</div>
+          </div>
           <h3 class="portal-title">Frontend &amp; Angular</h3>
           <p class="portal-text">
             Angular-based UI development with Signals, resource API, REST integration, and responsive data-driven interfaces.
@@ -258,8 +264,10 @@
         </article>
 
         <article class="portal-card animate-fade-up [animation-delay:380ms]">
-          <div class="portal-id">#006</div>
-          <div class="portal-icon">☰</div>
+          <div class="portal-card-top">
+            <div class="portal-id">#006</div>
+            <div class="portal-icon">☰</div>
+          </div>
           <h3 class="portal-title">Leadership</h3>
           <p class="portal-text">
             Mentored new engineers, guided architecture decisions, and led delivery across critical enterprise initiatives.
@@ -269,14 +277,17 @@
 
       <!-- Resume timeline -->
       <section class="mt-16">
-        <div class="section-label">RESUME</div>
-
-        <div class="mt-8 grid grid-cols-1 lg:grid-cols-[180px_1fr] gap-6">
-          <div class="text-sm font-semibold uppercase tracking-wide text-[#615d48] dark:text-slate-400">
-            Experience
+        <div class="section-head">
+          <div>
+            <div class="section-label">RESUME</div>
+            <h2 class="section-title-main mt-4">Experience and background</h2>
           </div>
+        </div>
 
-          <div class="space-y-8">
+        <div class="resume-group">
+          <div class="resume-group-label">Experience</div>
+
+          <div class="resume-group-content space-y-5">
             <article class="timeline-card">
               <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
                 <div>
@@ -339,12 +350,10 @@
           </div>
         </div>
 
-        <div class="mt-12 grid grid-cols-1 lg:grid-cols-[180px_1fr] gap-6">
-          <div class="text-sm font-semibold uppercase tracking-wide text-[#615d48] dark:text-slate-400">
-            Education
-          </div>
+        <div class="resume-group">
+          <div class="resume-group-label">Education</div>
 
-          <div class="space-y-5">
+          <div class="resume-group-content space-y-4">
             <article class="timeline-card">
               <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
                 <div>
@@ -377,30 +386,30 @@
           </div>
         </div>
 
-        <div class="mt-12 grid grid-cols-1 lg:grid-cols-[180px_1fr] gap-6">
-          <div class="text-sm font-semibold uppercase tracking-wide text-[#615d48] dark:text-slate-400">
-            Skills
-          </div>
+        <div class="resume-group">
+          <div class="resume-group-label">Skills</div>
 
-          <div class="flex flex-wrap gap-2">
-            <span class="tag">Java</span>
-            <span class="tag">Java 21</span>
-            <span class="tag">Spring Boot 3.5</span>
-            <span class="tag">Angular 19</span>
-            <span class="tag">Kafka</span>
-            <span class="tag">Solace</span>
-            <span class="tag">Redis</span>
-            <span class="tag">GemFire</span>
-            <span class="tag">OpenShift</span>
-            <span class="tag">AWS</span>
-            <span class="tag">GCP</span>
-            <span class="tag">Docker</span>
-            <span class="tag">Terraform</span>
-            <span class="tag">Postgres</span>
-            <span class="tag">MongoDB</span>
-            <span class="tag">Cassandra</span>
-            <span class="tag">OAuth2</span>
-            <span class="tag">JWT</span>
+          <div class="resume-group-content">
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">Java</span>
+              <span class="tag">Java 21</span>
+              <span class="tag">Spring Boot 3.5</span>
+              <span class="tag">Angular 19</span>
+              <span class="tag">Kafka</span>
+              <span class="tag">Solace</span>
+              <span class="tag">Redis</span>
+              <span class="tag">GemFire</span>
+              <span class="tag">OpenShift</span>
+              <span class="tag">AWS</span>
+              <span class="tag">GCP</span>
+              <span class="tag">Docker</span>
+              <span class="tag">Terraform</span>
+              <span class="tag">Postgres</span>
+              <span class="tag">MongoDB</span>
+              <span class="tag">Cassandra</span>
+              <span class="tag">OAuth2</span>
+              <span class="tag">JWT</span>
+            </div>
           </div>
         </div>
       </section>
