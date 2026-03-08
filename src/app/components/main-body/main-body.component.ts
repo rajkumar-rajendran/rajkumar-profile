@@ -1,4 +1,4 @@
-import { Component, Inject, OnDestroy, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
+import { Component, Inject, OnDestroy, OnInit, PLATFORM_ID, ViewChild, EventEmitter, Output } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { ChatService } from '../../chat.service';
 import { ChatWidgetComponent } from '../chat-widget/chat-widget.component';
@@ -15,6 +15,13 @@ import { FooterComponent } from '../footer/footer.component';
 export class MainBodyComponent implements OnInit, OnDestroy {
   sessionId = '';
   apiUrl = 'http://localhost:8080/api/chat';
+
+  @Output() imageClick = new EventEmitter<void>();
+
+  onProfileImageClick(): void {
+    this.imageClick.emit();
+  }
+
 
   @ViewChild('chatWidget') widget?: ChatWidgetComponent;
 
@@ -86,6 +93,8 @@ export class MainBodyComponent implements OnInit, OnDestroy {
     this.widget?.openDrawer();
   }
 
+  
+
   handleAsk(prompt: string): void {
   if (!this.widget) return;
 
@@ -111,4 +120,6 @@ export class MainBodyComponent implements OnInit, OnDestroy {
     }
   });
 }
+
+
 }
