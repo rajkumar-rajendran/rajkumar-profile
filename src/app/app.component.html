@@ -1,4 +1,24 @@
 <app-header></app-header>
-<app-main-body></app-main-body>
+<app-main-body (imageClick)="openImageModal()"></app-main-body>
 <app-footer></app-footer>
 
+@if (isImageModalOpen) {
+  <div class="image-modal-backdrop" (click)="closeImageModal()">
+    <div class="image-modal-shell" (click)="$event.stopPropagation()">
+      <button
+        type="button"
+        class="image-modal-close"
+        (click)="closeImageModal()"
+        aria-label="Close image"
+      >
+        ✕
+      </button>
+
+      <img
+        src="assets/image.jpg"
+        alt="Rajkumar Rajendran"
+        class="image-modal-img"
+      />
+    </div>
+  </div>
+}

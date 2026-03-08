@@ -14,5 +14,18 @@ import { MainBodyComponent } from './components/main-body/main-body.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  isImageModalOpen = false;
+
+openImageModal(): void {
+  this.isImageModalOpen = true;
+  document.body.classList.add('modal-open');
+}
+
+closeImageModal(): void {
+  this.isImageModalOpen = false;
+  document.body.classList.remove('modal-open');
+}
+
  
 }
