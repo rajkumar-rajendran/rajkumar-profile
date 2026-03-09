@@ -33,11 +33,13 @@ export class MainBodyComponent implements OnInit, OnDestroy {
   private typingTimer: ReturnType<typeof setTimeout> | null = null;
 
   readonly roles = [
-    'Backend Engineer',
-    'Spring Boot Specialist',
-    'Cloud-Native Builder',
-    'Low-Latency Systems Developer'
-  ];
+    'Agentic AI Workflow Builder', 
+    'Java 21 & Spring Boot Specialist', 
+    'Angular 19 & Signals Enthusiast', 
+    'Full-Stack Systems Developer', 
+    'Cloud-Native Infrastructure Builder', 
+    'Low-Latency Performance Expert'
+];
 
   constructor(
     private chat: ChatService,
