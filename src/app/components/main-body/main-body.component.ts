@@ -4,6 +4,7 @@ import { ChatService } from '../../chat.service';
 import { ChatWidgetComponent } from '../chat-widget/chat-widget.component';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-main-body',
@@ -14,7 +15,7 @@ import { FooterComponent } from '../footer/footer.component';
 })
 export class MainBodyComponent implements OnInit, OnDestroy {
   sessionId = '';
-  apiUrl = 'http://localhost:8080/api/chat';
+  apiUrl = `${environment.apiBaseUrl}/api/chat`;
 
   @Output() imageClick = new EventEmitter<void>();
 
