@@ -29,11 +29,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [],
-            "outputMode": "static",
-            "security": {
-              "allowedHosts": []
-            }
+            "scripts": []
           },
           "configurations": {
             
