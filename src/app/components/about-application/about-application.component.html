@@ -1,0 +1,195 @@
+<div
+  class="relative min-h-screen overflow-hidden py-16 sm:py-20 bg-[#e7e1b9] text-[#2c2c2c] transition-colors duration-300 dark:bg-[#030817] dark:text-slate-100">
+
+  <!-- Background effects -->
+  <div class="pointer-events-none absolute inset-0 hidden dark:block">
+    <div
+      class="absolute inset-0 bg-[radial-gradient(circle_at_12%_18%,rgba(59,130,246,0.16),transparent_28%),radial-gradient(circle_at_82%_16%,rgba(16,185,129,0.10),transparent_24%),radial-gradient(circle_at_48%_34%,rgba(99,102,241,0.12),transparent_30%),linear-gradient(to_bottom,#071225_0%,#040b18_45%,#020611_100%)]">
+    </div>
+    <div
+      class="absolute inset-0 opacity-[0.08] bg-[linear-gradient(to_right,rgba(255,255,255,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.08)_1px,transparent_1px)] bg-[size:64px_64px]">
+    </div>
+  </div>
+
+  <main class="relative px-4 sm:px-6 lg:px-8">
+    <article class="about-article mx-auto max-w-4xl">
+
+      <div class="section-label">ABOUT THIS APPLICATION</div>
+
+      <h1 class="about-title mt-5">
+        Building a reusable RAG system — disguised as a portfolio
+      </h1>
+
+      <p class="about-lead mt-6">
+        This application may look like a resume assistant, but the real idea is much bigger.
+        I built it as a reusable Retrieval-Augmented Generation architecture that can scale far
+        beyond a personal portfolio. Today it answers questions about my experience. Tomorrow,
+        the same system can index thousands of pages and power an internal knowledge assistant,
+        documentation search engine, or enterprise Q&amp;A platform.
+      </p>
+
+      <p class="about-copy mt-5">
+        The core pattern is powerful: documents are chunked, converted into embeddings,
+        stored in a vector-enabled database, and retrieved using semantic similarity when a user asks
+        a question. Only the most relevant chunks are sent to the model, which makes the response
+        grounded, accurate, and efficient.
+      </p>
+
+      <section class="about-section mt-12">
+        <h2 class="section-title-main">A real-world scenario</h2>
+
+        <p class="about-copy mt-4">
+          Imagine this same system deployed inside a large engineering organization. Instead of a resume,
+          it could index architecture standards, API contracts, migration guides, runbooks, postmortems,
+          onboarding docs, and support playbooks.
+        </p>
+
+        <blockquote class="about-quote mt-6">
+          “How do I onboard a service to the API gateway?”
+        </blockquote>
+
+        <blockquote class="about-quote mt-4">
+          “Where is the runbook for login latency spikes caused by downstream timeout?”
+        </blockquote>
+
+        <blockquote class="about-quote mt-4">
+          “What is our company's leave policy?”
+        </blockquote>
+
+        <p class="about-copy mt-6">
+          Instead of searching manually through hundreds of pages, an engineer asks one question and gets
+          a grounded answer backed by the most relevant chunks. That is the kind of system this project
+          is really designed to become.
+        </p>
+      </section>
+      <figure class="about-figure mt-10">
+        <figcaption class="about-figure-caption">
+          High-level architecture
+        </figcaption>
+
+        <div class="about-diagram">
+          <div class="about-diagram-grid"></div>
+
+          <div class="about-diagram-row">
+            <div class="about-diagram-node">
+              <div class="about-node-label">CLIENT</div>
+              <h3>🌐 Angular App</h3>
+              <p>Responsive UI, routed pages, and chat experience for asking questions against the knowledge base.</p>
+            </div>
+
+            <div class="about-diagram-arrow">→</div>
+
+            <div class="about-diagram-node about-diagram-node--accent">
+              <div class="about-node-label">ORCHESTRATION</div>
+              <h3>⚙️ Spring Boot API Engine</h3>
+              <p>Handles chat requests, builds prompts, manages retrieval flow, and assembles the final grounded response.</p>
+            </div>
+
+            <div class="about-diagram-arrow">→</div>
+
+            <div class="about-diagram-node">
+              <div class="about-node-label">RETRIEVAL</div>
+              <h3>🗄️ Postgres + pgvector</h3>
+              <p>Stores embeddings and performs fast semantic retrieval over document chunks.</p>
+            </div>
+          </div>
+
+          <div class="about-diagram-divider">
+            <span></span>
+          </div>
+
+          <div class="about-diagram-row">
+            <div class="about-diagram-node">
+              <div class="about-node-label">KNOWLEDGE</div>
+              <h3>📚 Chunked Documents</h3>
+              <p>Resume pages today. Potentially 10,000+ pages of documentation, playbooks, or internal knowledge tomorrow.</p>
+            </div>
+
+            <div class="about-diagram-arrow">→</div>
+
+            <div class="about-diagram-node about-diagram-node--accent">
+              <div class="about-node-label">SEMANTIC ENGINE</div>
+              <h3>🧠 Embedding Model</h3>
+              <p>Converts both stored content and user queries into vectors that capture meaning, not just keywords.</p>
+            </div>
+
+            <div class="about-diagram-arrow">→</div>
+
+            <div class="about-diagram-node">
+              <div class="about-node-label">MATCHING</div>
+              <h3>🔎 Top-K Cosine Similarity</h3>
+              <p>Selects the most semantically relevant chunks so the model receives precise context instead of noise.</p>
+            </div>
+          </div>
+
+          <div class="about-diagram-divider">
+            <span></span>
+          </div>
+
+          <div class="about-diagram-row about-diagram-row--single">
+            <div class="about-diagram-node about-diagram-node--accent about-diagram-node--wide">
+              <div class="about-node-label">GENERATION</div>
+              <h3>🤖 LLM Response Engine</h3>
+              <p>Uses retrieved evidence to produce grounded answers instead of relying on generic model memory.</p>
+            </div>
+          </div>
+        </div>
+      </figure>
+
+      <section class="about-section mt-12">
+        <h2 class="section-title-main">Why this is more than a portfolio</h2>
+
+        <p class="about-copy mt-4">
+          The portfolio is just the first dataset. The architecture is the real deliverable.
+          Because content is chunked and embedded independently, the system does not fundamentally
+          change when the corpus grows. Whether it stores 2 pages or 10,000 pages, the retrieval
+          pattern stays the same: embed the query, find the top-K most similar chunks, and ground
+          the answer on those results.
+        </p>
+
+        <p class="about-copy mt-5">
+          That is what makes this scalable. The model never has to read the entire corpus. It only
+          sees the most relevant context. That keeps prompt size under control, improves performance,
+          and makes the architecture reusable for much larger knowledge systems.
+        </p>
+      </section>
+
+      <section class="about-section mt-12">
+        <h2 class="section-title-main">Why semantic retrieval improves accuracy</h2>
+
+        <p class="about-copy mt-4">
+          Keyword search is brittle. A user might ask about “latency optimization,” while the actual
+          document says “response time reduction” or “performance tuning.” A simple text match can miss
+          that relationship. Embeddings solve this by representing meaning in vector space.
+        </p>
+
+        <p class="about-copy mt-5">
+          Once the query and stored chunks are embedded, the backend performs a
+          <strong>Top-K cosine similarity search</strong>. That means the system ranks chunks by semantic
+          closeness and retrieves the strongest matches. The result is a better context window, less
+          irrelevant text, and a more trustworthy answer.
+        </p>
+      </section>
+
+      
+
+      <section class="about-section mt-12">
+        <h2 class="section-title-main">What I’m proud of in this build</h2>
+
+        <p class="about-copy mt-4">
+          I like this project because it combines product thinking with systems thinking. The surface
+          experience is simple, but underneath it demonstrates frontend engineering, backend orchestration,
+          vector search, semantic ranking, grounded generation, deployment, DNS, SSL, and reusable system design.
+        </p>
+
+        <p class="about-copy mt-5">
+          In other words: this is not just a page that describes what I can build. It is a working example of it.
+        </p>
+      </section>
+
+    </article>
+  </main>
+</div>
+
+<app-chat-widget #chatWidget [endpoint]="apiUrl" (ask)="handleAsk($event)">
+</app-chat-widget>
