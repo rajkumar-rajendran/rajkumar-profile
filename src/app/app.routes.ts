@@ -4,15 +4,15 @@ import { AboutApplicationComponent } from './components/about-application/about-
 
 export const routes: Routes = [
 {
+    path: '',
+    component: MainBodyComponent
+},
+{
     path: 'about-application',
     component: AboutApplicationComponent
 },
 {
-    path: 'home',
-    component: MainBodyComponent
-},
-{
     path: '**',
-    redirectTo: 'home'
+    redirectTo: 'MainBodyComponent'
 }
 ];
