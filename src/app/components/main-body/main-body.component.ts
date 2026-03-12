@@ -1,9 +1,7 @@
 import { Component, Inject, OnDestroy, OnInit, PLATFORM_ID, ViewChild, EventEmitter, Output } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { ChatService } from '../../chat.service';
-import { ChatWidgetComponent } from '../chat-widget/chat-widget.component';
-import { HeaderComponent } from '../header/header.component';
-import { FooterComponent } from '../footer/footer.component';
+import { ChatWidgetComponent } from '../chat-widget/chat-widget.component'
 import { environment } from '../../../environments/environment';
 
 @Component({
@@ -14,6 +12,19 @@ import { environment } from '../../../environments/environment';
   styleUrls: ['./main-body.component.css']
 })
 export class MainBodyComponent implements OnInit, OnDestroy {
+
+    isImageModalOpen = false;
+
+openImageModal(): void {
+  this.isImageModalOpen = true;
+  document.body.classList.add('modal-open');
+}
+
+closeImageModal(): void {
+  this.isImageModalOpen = false;
+  document.body.classList.remove('modal-open');
+}
+
   sessionId = '';
   apiUrl = `${environment.apiBaseUrl}/api/chat`;
 

@@ -128,7 +128,7 @@
 
             <aside class="hero-side-card">
               <div class="flex items-center gap-5">
-                <div class="profile-avatar" (click)="onProfileImageClick()">
+                <div class="profile-avatar" (click)="openImageModal()">
                   <img src="assets/image.jpg" alt="Rajkumar Rajendran" />
                 </div>
 
@@ -440,3 +440,24 @@
 
 <app-chat-widget #chatWidget [endpoint]="apiUrl" (ask)="handleAsk($event)">
 </app-chat-widget>
+
+@if (isImageModalOpen) {
+  <div class="image-modal-backdrop" (click)="closeImageModal()">
+    <div class="image-modal-shell" (click)="$event.stopPropagation()">
+      <button
+        type="button"
+        class="image-modal-close"
+        (click)="closeImageModal()"
+        aria-label="Close image"
+      >
+        ✕
+      </button>
+
+      <img
+        src="assets/image.jpg"
+        alt="Rajkumar Rajendran"
+        class="image-modal-img"
+      />
+    </div>
+  </div>
+}

@@ -1,45 +1,46 @@
-<header class="fixed top-4 left-0 right-0 z-50 px-4 transition-all duration-300">
+<header class="fixed top-4 left-0 right-0 z-50 px-3 sm:px-4 transition-all duration-300">
   <div class="max-w-6xl mx-auto">
-    <div class="relative flex items-center justify-between h-14 px-6 rounded-full border backdrop-blur-md shadow-2xl transition-all duration-500"
+    <div
+      class="relative flex items-center justify-between h-14 px-3 sm:px-6 rounded-full border backdrop-blur-md shadow-2xl transition-all duration-500"
       [ngClass]="isDark ? 'bg-[#0b1020] bg-opacity-80 border-white border-opacity-10' : 'bg-[#f6efc8] bg-opacity-90 border-[#d7cb95] border-opacity-50'">
-      
-      <div class="flex items-center gap-2 group cursor-pointer">
+
+      <!-- Brand -->
+      <a routerLink="/home" class="flex items-center gap-2 min-w-0 shrink-0">
         <div class="h-2.5 w-2.5 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_10px_#10b981]"></div>
-        <span class="font-bold text-lg tracking-tight transition-colors"
-              [ngClass]="isDark ? 'text-white' : 'text-[#2f2c22]'">
-          Raj<span class="text-emerald-500">.</span>dev
+        <span class="font-bold text-[15px] sm:text-lg tracking-tight transition-colors whitespace-nowrap"
+          [ngClass]="isDark ? 'text-white' : 'text-[#2f2c22]'">
+          Rajkumar<span class="text-emerald-500">.</span>app
         </span>
-      </div>
-
-      <nav class="hidden md:flex items-center gap-1">
-        <a href="#home" 
-           class="px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-300 ease-in-out block"
-           [ngClass]="isDark 
-            ? 'text-slate-400 hover:!text-emerald-400 hover:bg-white hover:bg-opacity-5' 
-            : 'text-[#2f2c22] text-opacity-70 hover:!text-emerald-500 hover:bg-black hover:bg-opacity-5'">
-          Homepage
+      </a>
+      
+      <!-- Always visible nav -->
+      <nav class="flex items-center gap-2 sm:gap-3 mx-2 sm:mx-4 min-w-0">
+        <a routerLink="/home" class="nav-pill nav-pill--home" [ngClass]="isDark ? 'nav-pill--dark' : 'nav-pill--light'">
+          <span class="nav-pill__text">Home</span>
         </a>
-
-        <a href="#about" 
-           class="px-4 py-1.5 rounded-full text-sm font-medium transition-all duration-300 ease-in-out block"
-           [ngClass]="isDark 
-            ? 'text-slate-400 hover:!text-emerald-400 hover:bg-white hover:bg-opacity-5' 
-            : 'text-[#2f2c22] text-opacity-70 hover:!text-emerald-500 hover:bg-black hover:bg-opacity-10'">
-          About
+      
+        <a routerLink="/about-application" class="nav-pill nav-pill--about"
+          [ngClass]="isDark ? 'nav-pill--about-dark' : 'nav-pill--about-light'">
+          <span class="nav-pill__text">About</span>
+          <span class="nav-badge">NEW</span>
         </a>
       </nav>
 
-      <div class="flex items-center">
-        <button (click)="toggleTheme()" type="button"
-          class="group relative inline-flex h-8 w-14 items-center rounded-full border transition-all duration-300"
-          [ngClass]="isDark ? 'bg-slate-900 border-white border-opacity-10' : 'bg-[#d7cb95] border-transparent'">
-          
+      <!-- Theme toggle -->
+      <div class="flex items-center shrink-0">
+        <button
+          (click)="toggleTheme()"
+          type="button"
+          class="group relative inline-flex h-8 w-12 sm:w-14 items-center rounded-full border transition-all duration-300"
+          [ngClass]="isDark ? 'bg-slate-900 border-white/10' : 'bg-[#d7cb95] border-transparent'">
+
           <span class="sr-only">Toggle Theme</span>
 
-          <span [@slideToggle]="isDark ? 'dark' : 'light'"
+          <span
+            [@slideToggle]="isDark ? 'dark' : 'light'"
             class="flex h-6 w-6 items-center justify-center rounded-full bg-white shadow-lg ml-1">
             <span class="text-[12px] select-none">
-              {{ isDark ? '🌙' : '☀' }}
+              {{ isDark ? '🌙' : '☀️' }}
             </span>
           </span>
         </button>

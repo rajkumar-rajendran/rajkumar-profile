@@ -1,31 +1,19 @@
 import { Component, Inject, OnDestroy, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { ChatService } from './chat.service';
-import { ChatWidgetComponent } from './components/chat-widget/chat-widget.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { MainBodyComponent } from './components/main-body/main-body.component';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [ CommonModule, HeaderComponent, FooterComponent, MainBodyComponent],
+  imports: [ CommonModule, HeaderComponent, FooterComponent, RouterOutlet],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
 
-  isImageModalOpen = false;
 
-openImageModal(): void {
-  this.isImageModalOpen = true;
-  document.body.classList.add('modal-open');
-}
-
-closeImageModal(): void {
-  this.isImageModalOpen = false;
-  document.body.classList.remove('modal-open');
-}
 
  
 }

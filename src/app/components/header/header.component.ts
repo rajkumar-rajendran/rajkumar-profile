@@ -1,11 +1,12 @@
-import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { Component, HostListener, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common'; // CommonModule includes NgClass
 import { trigger, state, style, animate, transition } from '@angular/animations';
+import { RouterEvent, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './header.component.html',
   animations: [
     trigger('slideToggle', [
@@ -21,6 +22,22 @@ export class HeaderComponent implements OnInit {
   isDark = true;
 
   constructor(@Inject(PLATFORM_ID) private platformId: object) {}
+
+  isMobileMenuOpen = false;
+
+toggleMobileMenu(): void {
+  this.isMobileMenuOpen = !this.isMobileMenuOpen;
+}
+
+closeMobileMenu(): void {
+  this.isMobileMenuOpen = false;
+}
+@HostListener('window:resize')
+onResize(): void {
+  if (window.innerWidth >= 768) {
+    this.isMobileMenuOpen = false;
+  }
+}
 
   ngOnInit(): void {
     if (!isPlatformBrowser(this.platformId)) return;
